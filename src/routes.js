@@ -1,5 +1,5 @@
 // src/routes.js
-import { Router } from 'express';
+import { Router, request, response } from 'express';
 import multer from 'multer';
 import multerConfig from './config/multer.js';
 import authMiddleware from './app/middlewares/auth.js';
@@ -11,6 +11,10 @@ import OrderController from './app/controllers/OrderController.js';
 
 const routes = new Router();
 const upload = multer(multerConfig);
+
+routes.get('/', (request, response) => {
+  return response.json({message: 'Hello to my first API'})
+})
 
 routes.post('/users', UserController.store);
 routes.post('/session', SessionController.store);
