@@ -12,8 +12,8 @@ import OrderController from './app/controllers/OrderController.js';
 const routes = new Router();
 const upload = multer(multerConfig);
 
-routes.get('/', (request, response) => {
-  return response.json({message: 'Hello to my first API'})
+routes.get('/', (req, res) => {
+  return res.json({message: 'Hello to my first API'})
 })
 
 routes.post('/users', UserController.store);
