@@ -6,6 +6,12 @@ import cors from 'cors';
 import routes from './routes.js';
 import './database/index.js';
 
+const corsOptions = {
+  origin: 'https://code-burguer-pi.vercel.app',
+  credentials: true,
+}
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -13,7 +19,7 @@ class App {
   constructor() {
     this.app = express();
 
-    this.app.use(cors());
+    this.app.use(cors(corsOptions));
     this.middlewares();
     this.routes();
   }
